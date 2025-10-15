@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project 1</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <script src="/javascript/index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-zinc-900 w-full main text-white">
+      <div class="form p-10">
+        <h1 class=" mb-5 ml-1 font-bold text-3xl">Create Task Here</h1>
+        <form action="">
+          <input
+            type="text"
+            placeholder="Title goes here"
+            class="block px-5 p-3 bg-zinc-800 w-2/3 rounded-md"
+          />
+          <textarea
+            name=""
+            class="block px-5 p-3 bg-zinc-800 w-2/3 resize-none mt-4 rounded-md"
+            placeholder="Write Your Task Details Here "
+          ></textarea>
+          <input
+            type="submit"
+            class="mt-6 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-md"
+            value="Create a Task"
+          />
+        </form>
+      </div>
+
+      <div class="tasks px-10 py-7">
+        <h1 class="text-3xl mb-5 font-bold">Task Details</h1>
+        <div class=" flex gap-5 flex-wrap">
+
+        <% if (files && files.length > 0) { %>
+    <% files.forEach(function(val) { %>
+      <div class="task px-3 rounded-md py-4 bg-zinc-800 w-72">
+        <h1 class="text-3xl tracking-tighter mb-3"><%= val %></h1>
+        <a class="text-blue-300 inline-block" href="#">Read more</a>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <h3 class="text-xl text-zinc-600 mt-4 ml-3">No Tasks Yet...</h3>
+  <% } %>
+          
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
