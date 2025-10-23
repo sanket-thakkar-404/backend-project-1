@@ -42,7 +42,7 @@
         <div class="flex flex-wrap gap-6">
           <% if (files && files.length > 0) { %> <% files.forEach(function(val){ %>
           <div 
-          class="task bg-zinc-900  transition-all duration-300 rounded-2xl p-6 flex-wrap w-72 flex flex-col justify-between border border-zinc-700 hover:border-blue-500 hover:w-96">
+          class="task bg-zinc-900  transition-all duration-300 rounded-2xl p-6 flex-wrap w-80 flex flex-col justify-between border border-zinc-700 hover:border-blue-500 hover:w-96">
             <div>
               <h2
                 class="text-2xl font-semibold tracking-tight text-white mb-3 truncate"
@@ -54,15 +54,18 @@
 
             <div class="flex items-center justify-end gap-4 mt-auto">
               <a
-                href="#"
-                class="text-red-400 hover:text-red-500 font-medium text-sm transition"
-                >✏️ Edit</a
-              >
+                href="/edit/<%= val.name %>"
+                class="text-yellow-400 hover:text-yellow-500 font-medium text-sm transition"
+                >✏️ Edit</a>
               <a
                 href="/file/<%= val.name %>"
-                class="text-green-400 hover:text-green-300 font-medium text-sm transition"
-                > Read More</a
-              >
+                class="text-green-400 hover:text-green-500 font-medium text-sm transition"
+                > Read More</a>
+                <a
+                href="/delete/<%= val.name %>"
+                class="text-red-400 hover:text-red-500 font-medium text-sm transition"
+                >Delete</a>
+                
             </div>
           </div>
           <% }) %> 

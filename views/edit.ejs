@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project 1</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <script src="/javascript/index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-zinc-900 w-full main text-white p-10 ">
+        <a href="/" class="inline-block text-blue-500 mb-10 text-lg"> Go Back To Home</a>
+      <div class="form ">
+        <h1 class="mb-5 font-bold text-3xl">Previous Task Details</h1>
+        <form action="/edits" method="post">
+          <input
+            type="text"
+            name="oldTitle"
+            placeholder="Title goes here"
+            class="block px-5 p-3 bg-zinc-800 w-2/3 rounded-md mb-5 outline-none text-zinc-500"
+            value="<%= filename.replace(/\.txt$/i, '') %>"
+            readonly
+          />
+          <textarea
+            name="oldDetails"
+            class="block px-5 p-3 bg-zinc-800 w-2/3 resize-none mt-4 rounded-md text-zinc-500 outline-none"
+            placeholder="Write Your Task Details Here "
+            readonly
+          ><%= fileData %></textarea>
+          <h1 class="mb-5 font-bold text-3xl mt-4">Update Your Task</h1>
+          <input
+            type="text"
+            placeholder="Updates Title "
+            name="title"
+            class="block px-5 p-3 bg-zinc-800 w-2/3 rounded-md mb-5"
+          />
+          <textarea
+            name="details"
+            class="block px-5 p-3 bg-zinc-800 w-2/3 resize-none mt-4 rounded-md"
+            placeholder="Write new details or improvements here..."
+          ></textarea>
+          
+          <input
+            type="submit"
+            class="mt-6 bg-yellow-600 hover:bg-yellow-700 px-6 py-3 rounded-md"
+            value="Update a Task"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
