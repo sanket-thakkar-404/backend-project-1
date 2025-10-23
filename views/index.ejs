@@ -11,15 +11,16 @@
   <body>
     <div class="min-h-screen bg-zinc-900 w-full main text-white">
       <div class="form p-10">
-        <h1 class=" mb-5 ml-1 font-bold text-3xl">Create Task Here</h1>
-        <form action="">
+        <h1 class="mb-5 font-bold text-3xl">Create Task Here</h1>
+        <form action="/create" method="post">
           <input
             type="text"
             placeholder="Title goes here"
+            name="title"
             class="block px-5 p-3 bg-zinc-800 w-2/3 rounded-md"
           />
           <textarea
-            name=""
+            name="details"
             class="block px-5 p-3 bg-zinc-800 w-2/3 resize-none mt-4 rounded-md"
             placeholder="Write Your Task Details Here "
           ></textarea>
@@ -31,22 +32,48 @@
         </form>
       </div>
 
-      <div class="tasks px-10 py-7">
-        <h1 class="text-3xl mb-5 font-bold">Task Details</h1>
-        <div class=" flex gap-5 flex-wrap">
+      <div class="tasks px-8 py-8">
+        <div class="flex items-center justify-between mb-6">
+          <h1 class="text-3xl font-extrabold tracking-tight text-white">
+           Task Details
+          </h1>
+        </div>
 
-        <% if (files && files.length > 0) { %>
-    <% files.forEach(function(val) { %>
-      <div class="task px-3 rounded-md py-4 bg-zinc-800 w-72">
-        <h1 class="text-3xl tracking-tighter mb-3"><%= val %></h1>
-        <a class="text-blue-300 inline-block" href="#">Read more</a>
-      </div>
-    <% }) %>
-  <% } else { %>
-    <h3 class="text-xl text-zinc-600 mt-4 ml-3">No Tasks Yet...</h3>
-  <% } %>
-          
-      </div>
+        <div class="flex flex-wrap gap-6">
+          <% if (files && files.length > 0) { %> <% files.forEach(function(val){ %>
+          <div 
+          class="task bg-zinc-900  transition-all duration-300 rounded-2xl p-6 flex-wrap w-72 flex flex-col justify-between border border-zinc-700 hover:border-blue-500 hover:w-96">
+            <div>
+              <h2
+                class="text-2xl font-semibold tracking-tight text-white mb-3 truncate"
+              >
+                <%= val.name.replace('.txt', '') %>
+              </h2>
+              <p class="text-zinc-400 text-sm mb-4"><%= val.details %></p>
+            </div>
+
+            <div class="flex items-center justify-end gap-4 mt-auto">
+              <a
+                href="#"
+                class="text-red-400 hover:text-red-500 font-medium text-sm transition"
+                >✏️ Edit</a
+              >
+              <a
+                href="/file/<%= val.name %>"
+                class="text-green-400 hover:text-green-300 font-medium text-sm transition"
+                > Read More</a
+              >
+            </div>
+          </div>
+          <% }) %> 
+          <% } else { %>
+          <div class="w-full text-center mt-10">
+            <h3 class="text-xl text-zinc-500">
+              😴 No Tasks Yet... Start by adding one!
+            </h3>
+          </div>
+          <% } %>
+        </div>
       </div>
     </div>
   </body>

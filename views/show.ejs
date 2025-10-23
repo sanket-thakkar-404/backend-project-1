@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project 1</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <script src="/javascript/index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-zinc-900 w-full main text-white p-10">
+      <a href="/" class="inline-block text-blue-500 mb-10 text-lg"> Go Back To Home</a>
+      <h1 class="text-4xl mb-5 tracking-tighter"><%=fileName.replace(/\.txt$/i, '') %></h1>
+      <p class="font-light"><%=fileData %></p>
+    </div>
+  </body>
+</html>
